@@ -1,0 +1,11 @@
+source 'https://rubygems.org'
+
+gem 'sinatra'
+gem 'sinatra-activerecord'
+gem 'sinatra-contrib'
+gem 'thin'
+gem 'pg'
+gem 'rake'
+gem 'excon'
+gem 'shrine'
+gem 'aws-sdk-s3'

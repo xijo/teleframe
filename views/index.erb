@@ -29,9 +29,9 @@
         }
 
         var images = [], x = -1;
-        <%- Array(@photos).each_with_index do |photo, index| %>
+        <% Array(@photos).each_with_index do |photo, index| %>
           images[<%= index %>] = "<%= photo.image.url %>";
-        <%- end %>
+        <% end %>
 
         startTimer();
       </script>

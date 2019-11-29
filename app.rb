@@ -15,7 +15,7 @@ s3_options = {
 
 Shrine.storages = {
   cache: Shrine::Storage::S3.new(prefix: "cache", **s3_options),
-  store: Shrine::Storage::S3.new(**s3_options),
+  store: Shrine::Storage::S3.new(public: true, **s3_options),
 }
 
 Shrine.plugin :activerecord

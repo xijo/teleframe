@@ -27,13 +27,13 @@ require './models/photo'
 
 get '/bots/:token', provides: 'html' do
   @bot = Bot.find_by token: params[:token]
-  @photos = @bot.photos.last(10)
+  @photos = @bot.photos.order(created_at: :desc).last(10)
   erb :index
 end
 
 get '/bots/:token/current' do
   @bot = Bot.find_by token: params[:token]
-  @photo = @bot.photos.last
+  @photo = @bot.photos.order(created_at: :desc).last
   @photo.id.to_s
 end
 

@@ -27,7 +27,7 @@ require './models/photo'
 
 get '/bots/:token', provides: 'html' do
   @bot = Bot.find_by token: params[:token]
-  @photo = @bot.photos.last
+  @photos = @bot.photos.last(10)
   erb :index
 end
 

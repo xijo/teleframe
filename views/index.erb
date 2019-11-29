@@ -10,9 +10,31 @@
 
   <body class='bg-black'>
     <main role="main" class="container">
-      <% if @photo %>
-        <img class="max-w-full max-h-full fixed inset-0 overflow-auto m-auto" src="<%= @photo.image.url %>" />
-      <% end %>
+      <img id="img" class="max-w-full max-h-full fixed inset-0 overflow-auto m-auto" />
+
+      <script type = "text/javascript">
+        function displayNextImage() {
+          x = (x === images.length - 1) ? 0 : x + 1;
+          document.getElementById("img").src = images[x];
+        }
+
+        function displayPreviousImage() {
+          x = (x <= 0) ? images.length - 1 : x - 1;
+          document.getElementById("img").src = images[x];
+        }
+
+        function startTimer() {
+          displayNextImage();
+          setInterval(displayNextImage, 180000);
+        }
+
+        var images = [], x = -1;
+        <%- Array(@photos).each_with_index do |photo, index| -%>
+          images[<%= index %>] = "<%= photo.image.url %>";
+        <%- end -%>
+
+        startTimer();
+      </script>
     </main>
   </body>
 </html>

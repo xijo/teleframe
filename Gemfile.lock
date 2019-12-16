@@ -37,7 +37,7 @@ GEM
     down (5.0.0)
       addressable (~> 2.5)
     eventmachine (1.2.7)
-    excon (0.68.0)
+    excon (0.71.0)
     i18n (1.7.0)
       concurrent-ruby (~> 1.0)
     jmespath (1.4.0)
